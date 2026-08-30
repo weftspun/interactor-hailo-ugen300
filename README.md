@@ -38,3 +38,12 @@ the desktop GPU cannot spare.
 
 Environment: HailoRT 5.3.2 on Windows for the device half; DFC 5.3.0
 (`hailo10h`) in WSL for the compile half.
+
+## Binaries
+
+The large and irreproducible-without-the-checkpoint artifacts -- the merged
+tower ONNX exports, the QZO HAR/params archives, and a full mirror of the
+session's working directories including logs and built DLL -- are on Hugging
+Face: <https://huggingface.co/chibifire/hailo-ugen300-artifacts> (private).
+It is deliberately not in the manifest; restarting takes this repository
+first and fetches from there.
