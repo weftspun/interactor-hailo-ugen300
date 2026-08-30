@@ -1,0 +1,18 @@
+
+=== probe 1, best case: precision=a16_w16, context=SDK_BIT_EXACT ===
+    start loss quant=1.7700e-03 float=1.7700e-03
+        eps     sign         r        |gq|        |gf|  ratio
+      3e-02    43.8%    -0.258   1.584e+00   2.109e-05  75134.5x
+      1e-02    39.6%    -0.033   4.236e+00   2.118e-05  200035.4x
+      1e-03    45.8%    -0.180   8.964e+01   2.157e-05  4156505.5x
+
+=== probe 2, LLM deployment shape: a16_w4 FAILED AttributeError: 'function' object has no attribute 'set_wraparound_loss'
+
+=== probe 3, DFC default: precision=a8_w8, context=SDK_BIT_EXACT ===
+    start loss quant=1.7700e-03 float=1.7700e-03
+        eps     sign         r        |gq|        |gf|  ratio
+
+=== probe 3, DFC default: a8_w8 FAILED InferenceError: An error occurred during inference: Graph execution error:
+
+Detected at node simulation_inference_model_10_1/hailo_model_18_1/conv2_1/act_op_1/pow defined at (most recent call last):
+  File "/work/pro

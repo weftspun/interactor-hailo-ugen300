@@ -1,0 +1,6 @@
+seed   translate   optimize    compile     hef_MB   path
+--------------------------------------------------------------
+1171        0.2s       14.0s        2.6s     0.086   /work/lad_1171.hef
+2026        0.2s       11.1s        3.1s     0.086   /work/lad_2026.hef
+
+two HEFs written; same architecture, different weights

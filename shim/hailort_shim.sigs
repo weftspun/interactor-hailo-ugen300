@@ -1,0 +1,31 @@
+# The flat C surface of hailort_shim.dll, which wraps HailoRT's C++ InferModel.
+#
+# Same format as ../../2-contract/bus/iceoryx2.sigs: one C declaration per line, '#' starts
+# a comment. Bound from Python by sigs_ctypes.py.
+#
+# WHY A SHIM RATHER THAN hailort.sigs DIRECTLY. HailoRT's own flat C API is exported and
+# binds cleanly -- all 17 declarations in hailort.sigs resolve -- but the Hailo-10H rejects
+# it: hailo_init_configure_params_by_vdevice returns HAILO_NOT_IMPLEMENTED(7), and the
+# library prints "use InferModel instead". InferModel returns
+# Expected<std::shared_ptr<InferModel>>, which ctypes cannot call. Five functions bridge it.
+#
+# hs_open returns NULL on failure and the reason is in hs_last_error.
+# hs_infer returns hailo_status: 0 is success.
+
+void *hs_open(const char *hef_path);
+void *hs_open_ex(const char *hef_path, int float_io);
+void *hs_open_tuned(const char *hef_path, int float_io, int ultra_power, int batch_size);
+int hs_dma_map(void *handle, void *buf, size_t n, int to_device);
+int hs_dma_unmap(void *handle, void *buf, size_t n, int to_device);
+size_t hs_input_size(void *handle);
+size_t hs_output_size(void *handle);
+int hs_infer(void *handle, const void *in_buf, size_t in_n, void *out_buf, size_t out_n, unsigned timeout_ms);
+void hs_close(void *handle);
+const char *hs_last_error(void);
+
+int hs_num_outputs(void *handle);
+int hs_output_name(void *handle, int i, char *buf, size_t n);
+int hs_output_shape(void *handle, int i, unsigned *h, unsigned *w, unsigned *f);
+int hs_resource(void *handle, const char *name, char *buf, size_t n);
+int hs_queue_size(void *handle);
+int hs_infer_batch(void *handle, const void *in_buf, void *out_buf, int n_frames, unsigned timeout_ms);

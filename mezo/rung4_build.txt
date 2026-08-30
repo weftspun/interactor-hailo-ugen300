@@ -1,0 +1,9 @@
+variant   kernels sha      hef sha           conv1 scale hef bytes    opt s   comp s
+----------------------------------------------------------------------------------------
+base      58710ab3776b8531 0eb665aeeac4259b  6.44496e-05    114688     15.9      5.0
+weights   1c35cff027a49580 42e05133d6e90d3b  6.71983e-05    114688     13.3      4.9
+scale     f8830de2b0930035 4b605129f54e995a  0.000179264    114688     12.9      4.5
+
+base vs weights: kernels differ, as intended
+base vs scale:   kernels DIFFER -- the scale test is confounded
+base vs scale:   hef differs, the forced range reached the compiler

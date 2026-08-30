@@ -1,0 +1,9 @@
+float scale arrays: ['tiny/input_layer1/layer_params/output_scales:0', 'tiny/input_layer1/layer_params/input_scales:0', 'tiny/conv1/layer_params/output_scales:0', 'tiny/conv1/layer_params/input_scales:0', 'tiny/conv2/layer_params/output_scales:0', 'tiny/conv2/layer_params/input_scales:0', 'tiny/output_layer1/layer_params/output_scales:0', 'tiny/output_layer1/layer_params/input_scales:0']
+kernels (discrete): ['tiny/conv1/kernel:0', 'tiny/conv1/zp_kernel:0', 'tiny/conv2/kernel:0', 'tiny/conv2/zp_kernel:0'] -> ['int16', 'int32', 'int16', 'int32']
+
+baseline mean=-0.005114 std=0.436134
+scales x1.5    max|d|=0.000000e+00   mean=-0.005114   IDENTICAL -- load_params is inert
+scales x0.5    max|d|=0.000000e+00   mean=-0.005114   IDENTICAL -- load_params is inert
+scales x10     max|d|=0.000000e+00   mean=-0.005114   IDENTICAL -- load_params is inert
+
+CONTROL, kernels halved: max|d|=0.000000e+00   IDENTICAL -- load_params never reaches inference

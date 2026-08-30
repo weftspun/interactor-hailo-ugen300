@@ -1,0 +1,95 @@
+HAILO_OPTIMIZED  unavailable: Unexpected params_kind hailo_optimized
+TRANSLATED        73 arrays  scale-like: ['tiny/input_layer1/limvals_in:0', 'tiny/input_layer1/limvals_out:0', 'tiny/input_layer1/zero_point_in:0', 'tiny/input_layer1/zero_point_out:0', 'tiny/input_layer1/layer_params/output_scales:0', 'tiny/input_layer1/layer_params/input_scales:0']
+FP_OPTIMIZED       7 arrays  scale-like: none
+NATIVE             7 arrays  scale-like: none
+
+using TRANSLATED
+    params_kind                                  (1,)               int64
+    tiny/input_layer1/qp_in:0                    (2,)               float32
+    tiny/input_layer1/qp_out:0                   (2,)               float32
+    tiny/input_layer1/limvals_in:0               (2,)               float32
+    tiny/input_layer1/limvals_out:0              (2,)               float32
+    tiny/input_layer1/zero_point_in:0            ()                 int32
+    tiny/input_layer1/zero_point_out:0           ()                 int32
+    tiny/input_layer1/layer_params/output_scales:0 (1, 256)           float32
+    tiny/input_layer1/layer_params/input_scales:0 (1, 256)           float32
+    tiny/input_layer1/layer_params/output_zero_points:0 (1, 256)           float32
+    tiny/input_layer1/layer_params/input_zero_points:0 (1, 256)           float32
+    tiny/input_layer1/layer_params/negative_slopes_correction_factor:0 ()                 float32
+    tiny/conv1/kernel:0                          (1, 1, 256, 256)   int16
+    tiny/conv1/zp_kernel:0                       ()                 int32
+    tiny/conv1/output_stage/mult_shift:0         ()                 uint8
+    tiny/conv1/padding_const_value:0             ()                 uint16
+    tiny/conv1/bias:0                            (256,)             int32
+    tiny/conv1/bias_q:0                          (256,)             int32
+    tiny/conv1/bias_factor:0                     ()                 uint16
+    tiny/conv1/bias_feed_repeat:0                ()                 uint16
+    tiny/conv1/precision_split_zp:0              ()                 bool
+    tiny/conv1/output_stage/piecewise/x_points:0 (1, 3)             int32
+    tiny/conv1/output_stage/piecewise/offsets:0  (1, 4)             int32
+    tiny/conv1/output_stage/piecewise/slopes_m:0 (1, 4)             int16
+    tiny/conv1/output_stage/piecewise/slopes_e:0 (1, 4)             uint8
+    tiny/conv1/output_stage/piecewise/size_splits:0 (1,)               uint32
+    tiny/conv1/qp_in:0                           (2,)               float32
+    tiny/conv1/qp_out:0                          (2,)               float32
+    tiny/conv1/limvals_in:0                      (2,)               float32
+    tiny/conv1/limvals_out:0                     (2,)               float32
+    tiny/conv1/zero_point_in:0                   ()                 int32
+    tiny/conv1/zero_point_out:0                  ()                 int32
+    tiny/conv1/layer_params/output_scales:0      (1, 256)           float32
+    tiny/conv1/layer_params/input_scales:0       (1, 256)           float32
+    tiny/conv1/layer_params/output_zero_points:0 (1, 256)           float32
+    tiny/conv1/layer_params/input_zero_points:0  (1, 256)           float32
+    tiny/conv1/layer_params/negative_slopes_correction_factor:0 ()                 float32
+    tiny/conv2/kernel:0                          (1, 1, 256, 64)    int16
+    tiny/conv2/zp_kernel:0                       ()                 int32
+    tiny/conv2/output_stage/mult_shift:0         ()                 uint8
+    tiny/conv2/padding_const_value:0             ()                 uint16
+    tiny/conv2/bias:0                            (64,)              int32
+    tiny/conv2/bias_q:0                          (64,)              int32
+    tiny/conv2/bias_factor:0                     ()                 uint16
+    tiny/conv2/bias_feed_repeat:0                ()                 uint16
+    tiny/conv2/precision_split_zp:0              ()                 bool
+    tiny/conv2/output_stage/piecewise/x_points:0 (1, 2)             int32
+    tiny/conv2/output_stage/piecewise/offsets:0  (1, 3)             int32
+    tiny/conv2/output_stage/piecewise/slopes_m:0 (1, 3)             int16
+    tiny/conv2/output_stage/piecewise/slopes_e:0 (1, 3)             uint8
+    tiny/conv2/output_stage/piecewise/size_splits:0 (1,)               uint32
+    tiny/conv2/qp_in:0                           (2,)               float32
+    tiny/conv2/qp_out:0                          (2,)               float32
+    tiny/conv2/limvals_in:0                      (2,)               float32
+    tiny/conv2/limvals_out:0                     (2,)               float32
+    tiny/conv2/zero_point_in:0                   ()                 int32
+    tiny/conv2/zero_point_out:0                  ()                 int32
+    tiny/conv2/layer_params/output_scales:0      (1, 64)            float32
+    tiny/conv2/layer_params/input_scales:0       (1, 256)           float32
+    tiny/conv2/layer_params/output_zero_points:0 (1, 64)            float32
+    tiny/conv2/layer_params/input_zero_points:0  (1, 256)           float32
+    tiny/conv2/layer_params/negative_slopes_correction_factor:0 ()                 float32
+    tiny/output_layer1/qp_in:0                   (2,)               float32
+    tiny/output_layer1/qp_out:0                  (2,)               float32
+    tiny/output_layer1/limvals_in:0              (2,)               float32
+    tiny/output_layer1/limvals_out:0             (2,)               float32
+    tiny/output_layer1/zero_point_in:0           ()                 int32
+    tiny/output_layer1/zero_point_out:0          ()                 int32
+    tiny/output_layer1/layer_params/output_scales:0 (1, 64)            float32
+    tiny/output_layer1/layer_params/input_scales:0 (1, 64)            float32
+    tiny/output_layer1/layer_params/output_zero_points:0 (1, 64)            float32
+    tiny/output_layer1/layer_params/input_zero_points:0 (1, 64)            float32
+    tiny/output_layer1/layer_params/negative_slopes_correction_factor:0 ()                 float32
+
+scale-like keys: ['tiny/input_layer1/limvals_in:0', 'tiny/input_layer1/limvals_out:0', 'tiny/input_layer1/zero_point_in:0', 'tiny/input_layer1/zero_point_out:0', 'tiny/input_layer1/layer_params/output_scales:0', 'tiny/input_layer1/layer_params/input_scales:0', 'tiny/input_layer1/layer_params/output_zero_points:0', 'tiny/input_layer1/layer_params/input_zero_points:0', 'tiny/conv1/zp_kernel:0', 'tiny/conv1/output_stage/mult_shift:0', 'tiny/conv1/precision_split_zp:0', 'tiny/conv1/output_stage/piecewise/offsets:0', 'tiny/conv1/limvals_in:0', 'tiny/conv1/limvals_out:0', 'tiny/conv1/zero_point_in:0', 'tiny/conv1/zero_point_out:0', 'tiny/conv1/layer_params/output_scales:0', 'tiny/conv1/layer_params/input_scales:0', 'tiny/conv1/layer_params/output_zero_points:0', 'tiny/conv1/layer_params/input_zero_points:0', 'tiny/conv2/zp_kernel:0', 'tiny/conv2/output_stage/mult_shift:0', 'tiny/conv2/precision_split_zp:0', 'tiny/conv2/output_stage/piecewise/offsets:0', 'tiny/conv2/limvals_in:0', 'tiny/conv2/limvals_out:0', 'tiny/conv2/zero_point_in:0', 'tiny/conv2/zero_point_out:0', 'tiny/conv2/layer_params/output_scales:0', 'tiny/conv2/layer_params/input_scales:0', 'tiny/conv2/layer_params/output_zero_points:0', 'tiny/conv2/layer_params/input_zero_points:0', 'tiny/output_layer1/limvals_in:0', 'tiny/output_layer1/limvals_out:0', 'tiny/output_layer1/zero_point_in:0', 'tiny/output_layer1/zero_point_out:0', 'tiny/output_layer1/layer_params/output_scales:0', 'tiny/output_layer1/layer_params/input_scales:0', 'tiny/output_layer1/layer_params/output_zero_points:0', 'tiny/output_layer1/layer_params/input_zero_points:0']
+
+QZO: 40 scale arrays, 2981 values, eps=0.01 lr=0.005 clip=1
+
+step        loss       g_raw     g_clipped
+   0  1.754013e-03
+   1  1.754013e-03   0.000e+00   0.000e+00
+   5  1.754013e-03   0.000e+00   0.000e+00
+  10  1.754013e-03   0.000e+00   0.000e+00
+  15  1.754013e-03   0.000e+00   0.000e+00
+  20  1.754013e-03   0.000e+00   0.000e+00
+  25  1.754013e-03   0.000e+00   0.000e+00
+  30  1.754013e-03   0.000e+00   0.000e+00
+
+start 1.754013e-03 -> end 1.754013e-03   delta +0.000e+00   56.3s for 30 steps

@@ -1,0 +1,46 @@
+# The HailoRT C ABI needed to run one HEF with a chosen input and read the output.
+#
+# Same format and intent as ../../2-contract/bus/iceoryx2.sigs and
+# adapters/openvr_api.sigs: one C declaration per line, '#' starts a comment. The
+# declarations are copied verbatim from C:\Program Files\HailoRT\include\hailo\hailort.h
+# with the HAILORTAPI macro stripped, so a diff against a newer HailoRT shows drift.
+#
+# WHY THIS EXISTS RATHER THAN hailo_platform. Hailo's Python bindings are not on PyPI, are
+# not shipped with the HailoRT 5.3.2 Windows install -- lib/ holds libhailort.lib and cmake
+# files only -- and live behind a developer-zone login. libhailort.dll is installed and
+# exports all of the below as extern "C", so ctypes reaches the device today without one.
+#
+# WHAT IS DELIBERATELY ABSENT. The genai surface -- LLM, VLM, LLMGenerator, set_model with
+# a lora_name -- is C++ classes with no extern "C" wrappers, 285 mangled symbols in the
+# DLL and no flat entry points. Those need the official wheel or a compiled shim; no .sigs
+# can reach them.
+#
+# Opaque handles are void*. Structs passed by pointer are void* here and laid out on the
+# Python side, because their size is what matters to ctypes, not their fields.
+
+# --- lifecycle ---------------------------------------------------------------------
+hailo_status hailo_create_vdevice(void *params, void **vdevice);
+hailo_status hailo_release_vdevice(void *vdevice);
+hailo_status hailo_create_hef_file(void **hef, const char *file_name);
+hailo_status hailo_release_hef(void *hef);
+
+# --- configuration -----------------------------------------------------------------
+hailo_status hailo_init_configure_params_by_vdevice(void *hef, void *vdevice, void *params);
+hailo_status hailo_configure_vdevice(void *vdevice, void *hef, void *params, void **network_groups, size_t *number_of_network_groups);
+
+# --- vstream setup -----------------------------------------------------------------
+hailo_status hailo_make_input_vstream_params(void *network_group, bool unused, int format_type, void *input_params, size_t *input_params_count);
+hailo_status hailo_make_output_vstream_params(void *network_group, bool unused, int format_type, void *output_params, size_t *output_params_count);
+hailo_status hailo_create_input_vstreams(void *configured_network_group, const void *inputs_params, size_t inputs_count, void **input_vstreams);
+hailo_status hailo_create_output_vstreams(void *configured_network_group, const void *outputs_params, size_t outputs_count, void **output_vstreams);
+hailo_status hailo_release_input_vstreams(const void **input_vstreams, size_t inputs_count);
+hailo_status hailo_release_output_vstreams(const void **output_vstreams, size_t outputs_count);
+
+# --- the only two calls that carry data ---------------------------------------------
+hailo_status hailo_vstream_write_raw_buffer(void *input_vstream, const void *buffer, size_t buffer_size);
+hailo_status hailo_vstream_read_raw_buffer(void *output_vstream, void *buffer, size_t buffer_size);
+
+# --- introspection, for shapes and names --------------------------------------------
+hailo_status hailo_hef_get_all_vstream_infos(void *hef, const char *name, void *vstream_infos, size_t *vstream_infos_count);
+hailo_status hailo_get_input_vstream_frame_size(void *vstream, size_t *frame_size);
+hailo_status hailo_get_output_vstream_frame_size(void *vstream, size_t *frame_size);

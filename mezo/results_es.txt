@@ -1,0 +1,14 @@
+
+=== context=SDK_QUANTIZED, precision=a16_w16, population=96 ===
+      eps   spearman   top-1 match   top-10 overlap   sign agree
+     3e-02     +0.988           yes              80%        93.8%
+     1e-02     +0.980           yes             100%        95.8%
+     1e-03     +0.531            no              40%        69.8%
+     1e-04     +0.093            no              10%        53.1%
+
+=== context=SDK_BIT_EXACT, precision=a16_w16, population=96 ===
+      eps   spearman   top-1 match   top-10 overlap   sign agree
+     3e-02     -0.002            no              20%        49.0%
+     1e-02     +0.011           yes              10%        52.1%
+     1e-03     -0.008            no              20%        49.0%
+     1e-04     -0.154            no              10%        45.8%

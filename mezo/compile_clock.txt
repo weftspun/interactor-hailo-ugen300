@@ -1,0 +1,3 @@
+width depth     params   translate   optimize    compile    hef_MB
+--------------------------------------------------------------------
+  256     2     131072        0.2s       13.9s        8.7s      0.36

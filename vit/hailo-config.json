@@ -1,0 +1,10 @@
+{
+  "patch_size": 16,
+  "spatial_merge_size": 2,
+  "encoder_output_layers_names_suffixes": {
+    "image_embeddings": "image_embeddings",
+    "deepstack_layer_1": "deepstack_layer_1",
+    "deepstack_layer_2": "deepstack_layer_2",
+    "deepstack_layer_3": "deepstack_layer_3"
+  }
+}
